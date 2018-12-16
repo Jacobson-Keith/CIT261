@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/custom.css" rel="stylesheet">
+
+    <style>
+    main {
+      width: 800px;
+      margin: 0 auto;
+    }
+
+    .div {
+  width: 500px;
+  border: 25px solid green;
+  padding: 25px;
+  margin: 25px;
+  }
+    </style>
+
+    <title>CIT 261 - Keith J</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS: You can use this stylesheet to override any Bootstrap styles and/or apply your own styles -->
+    <link href="../css/custom.css" rel="stylesheet">
+
+    <header id="main-header" class="bg-success text-white p-4 mb-3">
+      <div class="container">
+        <h1 id="header-title"><h1>HTML5 with Tags</h1><span style="display:none">123</span></h1>
+      </div>
+    </header>
+</head>
+
+
+
+<body class="col-lg-12">
+  <main class="container">
+    <div class="div">
+  <h1>HTML5 Canvas</h1>
+    <canvas id="myCanvas" width="300" height="200" style="border:2px solid #000000;">
+      <script>
+        const canvas = document.getElementById('myCanvas');
+        const context = canvas.getContext('2d');
+
+        context.beginPath();
+        context.arc(75, 75, 50, 0, Math.PI * 2, true);
+        context.moveTo(110, 75);
+        context.arc(75, 75, 35, 0, Math.PI, false);
+        context.moveTo(65, 65);
+        context.arc(60, 65, 5, 0, Math.PI * 2, true);
+        context.moveTo(95, 65);
+        context.arc(90, 65, 5, 0, Math.PI * 2, true);
+        context.stroke();
+      </script>
+    </canvas>
+  </div>
+    <div class="div">
+
+    <!-- All rights given to The Church of Jesus Christ of Latter Day Saints-->
+         <h1>Audio Example</h1>
+        <p>Listen to Learn by Russell M. Nelson</p>
+        <audio controls preload="none">
+            				<source src="http://media2.ldscdn.org/assets/general-conference/april-1991-general-conference/1991-04-2020-elder-russell-m-nelson-64k-eng.mp3">
+            				Your browser does not support the audio element.
+            		    </audio>
+    </div>
+
+    <div>
+
+    </div>
+
+    <div class="div">
+      <h1>Video Example</h1>
+      <video width="320" height="500" controls>
+        <source src="NoMoreIceCream.mp4" type="video/mp4">
+        <source src="NoMoreIceCream.ogg" type="video/ogg">
+        Your browser does not support the video tag.
+      </video>
+      <p><p>
+    </div>
+  </main>
+</body>
+
+
+    <!-- jQuery -->
+    <script src="../js/jquery-1.11.3.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="../js/bootstrap.min.js"></script>
+
+</html>
