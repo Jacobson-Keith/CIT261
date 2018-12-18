@@ -1,0 +1,115 @@
+
+.css3styles {
+    position: relative;
+    height: 200px;
+    width: 300;
+    padding-right: 50px;
+    float: middle;
+  }
+
+  h1 {
+    position: relative;
+    padding-left: 25%; 
+  }
+  h2 {
+      position: relative;
+      padding-left: 30%;
+    }
+
+  h4 {
+    position: relative;
+    padding-top: 32%
+  }
+
+  .circle {
+    background: #f00;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    position: relative;
+    object-position: 50% 50%;
+  }
+
+  #circle3:hover {
+    background-color: teal;
+    animation-name: rotating;
+    animation-duration: 4s;
+    animation-iteration-count: 4;
+    animation-timing-function: linear;
+  }
+
+  #circle1:hover {
+    background-color: blue;
+    animation-name: rotating;
+    animation-duration: 4s;
+    animation-iteration-count: 4;
+    animation-timing-function: linear;
+  }
+
+  #circle4:hover {
+    transform: rotateY(180deg);
+  }
+
+  #circle5:hover {
+    animation: rotate 3s forwards 0s ease;
+  }
+
+  @keyframes rotate{
+    0% {transform: rotate(10deg);}
+    10%{transform: rotate(20deg);}
+    20%{transform: rotate(30deg);}
+    30%{transform: rotate(40deg);}
+    40%{transform: rotate(50deg);}
+    50%{transform: rotate(60deg);}
+    60%{transform: rotate(70deg);}
+    70%{transform: rotate(80deg);}
+    80%{transform: rotate(90deg);}
+    90%{transform: rotate(100deg);}
+    100%{transform: rotate(110deg);}
+
+  }
+
+  @keyframes rotating {
+    0% {background-color: teal; left: 0px; top: 0px; transform: rotate(0deg); transform-origin: bottom right;}
+    13% {background-color: mediumaquamarine; left: 0px; top: 0px; transform: rotate(45deg); transform-origin: bottom right;}
+    25% {background-color: blue; left: 25px; top: 0px; transform: rotate(90deg); transform-origin: bottom right;}
+    38% {background-color: mediumseagreen; left: 25px; top: 0px; transform: rotate(135deg); transform-origin: bottom right;}
+    50% {background-color: green; left: 25px; top: 25px; transform: rotate(180deg); transform-origin: bottom right;}
+    63% {background-color: gainsboro; left: 25px; top: 25px; transform: rotate(225deg); transform-origin: bottom right;}
+    75% {background-color: yellow; left: 0px; top: 25px; transform: rotate(270deg); transform-origin: bottom right;}
+    88% {background-color: pink; left: 0px; top: 25px; transform: rotate(315deg); transform-origin: bottom right;}
+    100% {background-color: red; left: 0px; top: 0px; transform: rotate(360deg); transform-origin: bottom right;}
+  }
+
+#circle2:hover {
+    animation-timing-function: ease;
+    animation: slide 8s infinite; 
+}
+
+@keyframes slide{
+0% {border: 15px solid transparent;}
+50% {border: 15px solid white;}
+100% {border: 15px solid red;}
+from {left: 0px;}
+to {left: 500px;}
+}
+
+
+
+  #circle3:hover {
+    animation: shrink 3s forwards 0s ease-in;
+}
+
+@keyframes shrink {
+    0% {
+        transform: rotate(0) scale(1);
+
+    }
+    50% {
+        transform: rotate(0) scale(.5);
+    }
+    100% {
+        transform: rotate(0) scale(.1);
+    }
+}
+
