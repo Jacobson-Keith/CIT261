@@ -1,0 +1,50 @@
+form,
+#json {
+    border: 2px solid black;
+    padding: 10px;
+    margin: 10px;
+}
+
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 10px;
+}
+
+table  {
+    margin-top: 25px;
+    margin-left: 24%;
+}
+
+#form {
+    margin-top: 2%;
+    margin-left: 1%;
+}
+
+#firstname, #lastname {
+    position: relative;
+    margin-left: 5%;
+    text-align: center; 
+    float: center;
+}
+
+#date {
+    position: relative;
+    margin-left: 7.2%;
+    text-align: center; 
+    float: center;
+}
+
+#age {
+    position: relative;
+    margin-left: 7.5%;
+    text-align: center; 
+    float: center;
+}
+
+#button {
+    margin-left: 32%;
+}
