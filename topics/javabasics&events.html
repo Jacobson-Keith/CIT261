@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+  <link rel="stylesheet" href="../css/objects.css">
+  <style>
+      }
+      .glow{
+          box-shadow: 0 0 5px blue;
+      }
+      .wobbled{
+          transform: rotate(5deg);
+      }
+      #flyaway{
+          transition: all 2s ease-in;
+      }
+      .flownaway{
+          transform:  translateX(3000px);
+      }
+      #innerflyaway{
+          background: lightgreen;
+          padding: 12%;
+          border-radius: 44px;
+          border-left: 22%;
+          transition: all 5s;
+      }
+      .spin{
+          transform: rotate(720deg);
+      }
+      .flewaway{
+          background: yellow;
+          padding: 3px;
+          border-radius: 2px;
+          transition: all 2s;
+      }
+  </style>
+  //<script href="events.js"></script>
+  <title>JavaBasics with Events</title>
+</head>
+<body onload=onLoad()>
+  <header id="main-header" class="bg-success text-white p-4 mb-3">
+    <div class="container">
+      <h1 id="header-title">JavaScript Basics<span style="display:none"></span></h1>
+      <h2 id="header-title">with Events</h2>
+    </div>
+  </header>
+
+<div id="main" class="card card-body">
+  
+    <h1 id="form-title">I created a variable and assigned a value to it, try calling that value.</h1>
+
+    <form class="form-inline mb-3">
+    <input type="button" onclick="one()" class="btn btn-dark" value="Submit"/><br>
+    </form>
+    <form class="form-inline mb-3">
+      <input type="button" onclick="three()" class="btn btn-dark" value="Submit"/><br>
+    </form>
+    <p id="sub-title">Clicking on this will demonstrate a conditional statement, </p>
+    <form class="form-inline mb-3">
+      <input id="mywife" class="glow" onclick="two()" type="button" class="btn btn-dark" value="Submit">
+    </form>
+    <p id="my-wife">This button will grab the array myFamily and take the second item, my wife, and write a sentence about her.</p><hr/>
+    <h3>My family list: created with a for loop.</h3>
+    <ul id="family-list"></ul>
+    <h3>My family list: sorted.</h3>
+    <ol id="family-list-sorted"></ol>
+    <form class="form-inline mb-3">
+        <td id="transition_status"><div id="flyaway">
+            <div id="innerflyaway" class="flyaway"><h1>Life Savings</h1></div>
+        </div>
+    </td>
+    </form>
+    <table id="flyaway">
+        <tr>
+          <td>
+            <h3>About Theo?</h3>
+          </td>
+        </tr>
+        <tr>
+            <td>How old?</td>
+            <td id="age">1</td>
+        </tr>
+        <tr>
+            <td>What does he like to drink?</td>
+            <td id="preferred-drink">Milk</td>
+        </tr>
+        <tr>
+            <td>What is his favorite food?</td>
+            <td id="fav-food">Cookies</td>
+        </tr>
+        <tr>
+            <td>How much does he weigh</td>
+            <td id="weight">35.2lbs</td>
+        </tr></div>
+    </table>
+   </div>
+
+<script>
+//JavaScript Events
+
+document.getElementById("mywife").addEventListener("focus", function(){
+this.classList.add('glow');
+});
+
+document.getElementById("flyaway").addEventListener("mouseover", function(){
+this.classList.add('flownaway');
+document.getElementById("innerflyaway").classList.add("spin");
+});
+
+
+//onload
+function onLoad(){
+  alert("This message has loaded because you came to this page, one way to use these are triggered for ads.")
+}
+
+//ontouchstart - **only touch devices**
+function onTouch(){
+  document.getElementById("weight").innerHTML
+  HTML = "35.2lbs";
+}
+
+</script>
+
+<script>
+
+var myFamily = ["Keith", "Morgane", "Sophia", "Oliver", "Theo", "Lola"];
+
+function addToFamily(listName,item){
+                var listItem = document.createElement("LI");
+                var listItemText = document.createTextNode(item);         
+                listItem.appendChild(listItemText);                              
+                document.getElementById(listName).appendChild(listItem);
+            }
+            //for loop        
+            for(var i=0; i<myFamily.length; i++){
+                addToFamily("family-list",myFamily[i]);}
+            //sort alphabetically and use do-while loop
+            myFamily.sort();
+            var j=0;
+            do{ 
+                addToFamily("family-list-sorted", myFamily[j]);
+                j++;  
+            } 
+            while (j < myFamily.length);
+
+  function favoriteDrink(){
+                return "Milk";}
+
+            var theo = [];
+            theo['age']             = "1";
+            theo['preferredDrink']  = FavoriteDrink();
+            theo['favFood']         = "Cookies";
+            theo['weight']          = "35.2 lbs";
+            
+            document.getElementById('age').innerHTML             = theo['age'];
+            document.getElementById('preferred-drink').innerHTML = theo.preferredDrink;
+            document.getElementById('fav-food').innerHTML        = theo['favFood'];
+            document.getElementById('weight').innerHTML          = theo.weight;
+            
+
+</script>
+
+<script>
+//mouseover
+var over = document.getElementById("mywife");
+over.addEventListener("mouseover", two());
+
+  function one(){
+    var formTitle = "My Dynamic Family Tree";
+    document.getElementById("form-title").innerHTML = formTitle;
+  }
+
+  function two(){
+    var myFamily = ["Keith", "Morgane", "Sophia", "Oliver", "Theo"];
+        myFamily[myFamily.length] = "Lola";
+    var myWife = myFamily[1];
+      document.getElementById("my-wife").innerHTML = "My favorite person in the family is " + myWife + ".";
+    }
+
+  function three(){
+    var myFamily = ["Keith", "Morgane", "Sophia", "Oliver", "Theo", "Lola"];
+      myFamily[myFamily.length] = "Lola";
+    var myWife = myFamily[1];
+    var subTitle = "";
+if(myFamily.length > 10) {
+  subTitle = "My family is too large...";
+} else if (myFamily > 6) {
+  subTitle = "My family is larger than I thought possible...";
+} else {
+  subTitle = "This is my family tree: " + myFamily[0] + ", "+ myFamily[1] + ", "+ myFamily[2] + ", "+ myFamily[3] + ", "+ myFamily[4] + ", "+ "and " + myFamily[5] + "!";
+}
+document.getElementById("sub-title").innerHTML = subTitle;
+  }
+</script>
+
+   </body>
+   </html>
