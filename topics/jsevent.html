@@ -1,0 +1,225 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title class="title">JavaScript Events - Keith Jacobson</title>
+<style>
+body {
+    padding: 50px;
+}
+
+.eventType {
+    display: flex;
+}
+
+.events {
+    margin: 50px;
+    height: 100px;
+    width: 500px;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+    margin-left: 50px;
+}
+
+table {
+    width: 500px;
+    margin: 40px 0;
+}
+
+table,
+th,
+td {
+    border: 1px solid black;
+    border-collapse: collapse;
+    padding: 5px;
+}
+
+caption {
+    font-size: 1.5rem;
+}
+
+th {
+    background-color: lightskyblue;
+}
+
+td:nth-of-type(2) {
+    background-color: #cccccc;
+}
+
+#mouseEvents {
+    background-color: pink;
+}
+
+#animationEvents {
+    width: 250px;
+    height: 250px;
+    background-color: white;
+    transition: width 2s linear;
+    animation-name: clrChange;
+    animation-duration: 8s;
+    animation-iteration-count: infinite;
+}
+
+#animationEvents:hover {
+    width: 300px;
+}
+
+@keyframes clrChange {
+    0% {background-color: purple;}
+    25% {background-color: pink;}
+    50% {background-color: magenta;}
+    75% {background-color: palevioletred;}
+}
+
+
+#touchEvents {
+    width: 750px;
+    height: 300px;
+    border: 3px solid blue;
+}
+</style>
+</head>
+<body>
+<h1>JavaScript Events</h1>
+<div class="pageDiv eventType">
+    <div class="events pageEvents">
+        <p id="onReSize">If you change the size of this page then this will not be shown anymore, so sad.</p>
+    </div>
+</div>
+<hr>
+<div class="mouseDiv eventType">
+    <div class="container">
+        <div class="events" id="mouseEvents">
+            <p id="mouseP"></p>
+        </div>
+    </div>
+</div>
+<hr>
+<div class="formDiv eventType">
+    <div class="events formEvents">
+        <form>
+            <label for="inputText">Input: </label>
+            <input type="text" id="inputText" name="inputText">
+        </form>
+    </div>
+</div>
+<hr>
+<div class="keyboardDiv" class="eventType">
+    <div class="events keyboardEvents">
+        <h2 id="keyHeader">Key Event: <span id="keySpan"></span></h2>
+    </div>
+</div>
+<hr>
+<div class="touchDiv eventType">
+    <div class="events" id="touchEvents">
+        <h1>Touch me with your finger and see what happens!</h1>
+    </div>
+</div>
+<hr>
+<div class="animationDiv eventType">
+    <div class="events">
+        <p>Hover over me, then let go!</p>
+        <div id="animationEvents"></div>
+        <h3>Animation Count: <span id="animationCount"></span></h3>
+        <h3>Transition Count: <span id="transitionCount"></span></h3>
+    </div>
+</div>
+<div class="transitionDiv eventType">
+<div class="events transitionEvents">
+</div>
+</div>
+
+<script>
+//event onresize
+window.onresize = function() {
+    const y = document.getElementById("onReSize");
+    if (y.style.display = "block") {
+        y.style.display = "none";
+    } else {
+        y.style.display = "block";
+    }
+};
+
+
+
+//mouse events triggers
+const mouseEvents = document.getElementById("mouseEvents");
+mouseEvents.addEventListener("click", mouseClick);
+mouseEvents.addEventListener("mouseenter", mouseEnter);
+mouseEvents.addEventListener("mouseleave", mouseLeave);
+mouseEvents.addEventListener("mousemove", mouseMove);
+
+function mouseClick() {
+    mouseEvents.innerHTML = "You have clicked on this div.";
+}
+
+function mouseEnter() {
+    mouseEvents.style.backgroundColor = "lightgreen";
+}
+
+function mouseLeave() {
+    mouseEvents.style.backgroundColor = "yellow";
+}
+
+function mouseMove() {
+    mouseEvents.style.border = "4px solid purple";
+}
+
+//keypress triggers
+window.onkeydown = function(event) {
+    var key = event.key;
+    document.getElementById("keySpan").innerHTML = key;
+};
+
+// focus triggers
+const formEvents = document.getElementById("inputText");
+formEvents.addEventListener("focus", inputFocus);
+formEvents.addEventListener("blur", inputBlur);
+
+function inputFocus() {
+    formEvents.style.backgroundColor = "yellow";
+}
+
+function inputBlur() {
+    formEvents.style.backgroundColor = "red";
+}
+
+// Animation & Transition triggers
+
+const animationEvents = document.getElementById("animationEvents");
+animationEvents.addEventListener("animationiteration", animationIteration);
+animationEvents.addEventListener("transitionend", transitionEnd);
+
+var i = 0;
+var x = 0;
+
+function animationIteration() {
+    i++;
+    document.getElementById("animationCount").innerHTML = i;
+}
+
+function transitionEnd() {
+    x++;
+    document.getElementById("transitionCount").innerHTML = x;
+}
+
+// Touch triggers
+const touchEvents = document.getElementById("touchEvents");
+touchEvents.addEventListener("touchstart", touchStart);
+touchEvents.addEventListener("touchend", touchEnd);
+
+function touchStart() {
+    touchEvents.style.backgroundColor = "black";
+}
+
+function touchEnd() {
+    touchEvents.style.backgroundColor = "white";
+}
+</script>
+</body>
+</html>
